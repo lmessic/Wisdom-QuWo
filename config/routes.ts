@@ -5,6 +5,7 @@ export default [
   },
   {
     path: '/home',
+    name: 'home',
     component: '@/layouts/index',
     routes: [
       { exact: true, path: '/home', component: '@/pages/home/index' }
@@ -12,6 +13,7 @@ export default [
   },
   {
     path: '/dashboard',
+    name: 'dashboard',
     component: '@/layouts/index',
     meta: {
       title: '工作台'
@@ -22,6 +24,7 @@ export default [
   },
   {
     path: '/project',
+    name: 'project',
     component: '@/layouts/index',
     meta: {
       title: '项目'

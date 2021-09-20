@@ -1,9 +1,14 @@
-import { Component } from 'react'
+import { Component } from 'react';
+import { Layout } from 'antd';
+
+const { Header } = Layout;
 
 class Dashboard extends Component{
   render() {
     return(
-      <div>dashboard</div>
+      <div>
+        <Header>我的工作台</Header>
+      </div>
     )
   }
 }
