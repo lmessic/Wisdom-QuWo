@@ -1,15 +1,7 @@
 export default [
   {
     path: '/',
-    redirect: '/home',
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: '@/layouts/index',
-    routes: [
-      { exact: true, path: '/home', component: '@/pages/home/index' }
-    ]
+    redirect: '/dashboard',
   },
   {
     path: '/dashboard',

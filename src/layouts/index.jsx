@@ -5,7 +5,7 @@ import './index.less';
 import routes from '../../config/routes';
 import { AppleOutlined } from '@ant-design/icons';
 
-const { Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 class BaseLayout extends Component {
   constructor(props) {
     super(props)
@@ -46,7 +46,6 @@ class BaseLayout extends Component {
           <Content>
             <div>{this.props.children}</div>
           </Content>
-          <Footer>Footer</Footer>
         </Layout>
       </Layout>
     )
