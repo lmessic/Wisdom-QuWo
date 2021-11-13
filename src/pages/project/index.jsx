@@ -5,12 +5,12 @@ const { Header } = Layout;
 
 class Product extends Component {
   render() {
-    return(
+    return (
       <div>
         <Header>项目</Header>
       </div>
-    )
+    );
   }
 }
 
-export default Product
+export default Product;

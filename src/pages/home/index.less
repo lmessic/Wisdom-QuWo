@@ -1,3 +1,15 @@
+.mar-l15 {
+  margin-left: 15px;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 .h-left {
   background: #fff;
   height: calc(100vh - 90px);
@@ -10,12 +22,34 @@
     background: #fff;
     height: 50%;
     padding: 15px 10px;
+    .h-date-c {
+      height: calc(100% - 32px);
+      display: flex;
+      align-items: center;
+      .create {
+        cursor: pointer;
+        color: #348fe4;
+      }
+    }
+    .h-date-c > div {
+      margin: auto;
+      text-align: center;
+    }
   }
   .h-total {
     margin-top: 10px;
     height: calc(50% - 10px);
     background: #fff;
     padding: 15px 10px;
+    .h-total-item {
+      line-height: 40px;
+      cursor: pointer;
+      padding: 0 10px;
+      border-bottom: 1px solid rgb(241, 241, 241);
+    }
+    .h-total-item:hover {
+      background: #eff6f8;
+    }
   }
 }
 
@@ -32,9 +66,24 @@
     .ant-collapse-header {
       color: #5f6e8e;
     }
+    .ant-collapse-header:hover {
+      background: #eff6f8;
+    }
   }
   .ant-collapse-item:hover {
     background: #fafafa;
+  }
+  .h-task-item {
+    line-height: 40px;
+    cursor: pointer;
+    padding: 0 5px;
+    border-bottom: 1px solid rgb(241, 241, 241);
+  }
+  .h-task-item:hover {
+    background: #eff6f8;
+  }
+  .h-task-date {
+    float: right;
   }
 }
 
