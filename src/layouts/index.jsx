@@ -1,40 +1,54 @@
-import { Layout } from 'antd';
+import { Component } from 'react';
+import { Layout, Menu } from 'antd';
 import { history } from 'umi';
 import './index.less';
 import routes from '../../config/routes';
+import { AppleOutlined } from '@ant-design/icons';
 
-const { Header, Footer, Sider, Content } = Layout;
-
-
-export default (props) => {
-  function changePage(e, item) {
-    e.preventDefault()
-    history.push(item.path)
+const { Sider, Content } = Layout;
+class BaseLayout extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedKeys: []
+    }
   }
-
-  const menus = routes.filter(item => item.meta)
-  return(
-    <Layout className="main">
-      <Sider width={60} theme="light">
-        <div className="logo">占位</div>
-        {
-          menus.map((item, index) => {
-            return(
-              <div key={index} onClick={e => changePage(e, item)} className="l-menu">
-                <div>图标</div>
-                <div>{item.meta?.title}</div>
-              </div>
-            )
-          })
-        }
-      </Sider>
-      <Layout>
-        <Header>我的工作台</Header>
-        <Content>
-          <div>{props.children}</div>
-        </Content>
-        <Footer>Footer</Footer>
+  componentDidMount() {
+    this.setState({
+      selectedKeys: [this.props.match.path]
+    })
+  }
+  handleClick() {
+    let path = arguments[1].path
+    this.setState.defaultSelectedKeys = arguments[2]
+    history.push(path)
+  }
+  render() {
+    const menus = routes.filter(item => item.meta)
+    const { selectedKeys } = this.state
+    return(
+      <Layout className="main">
+        <Sider width={100} theme="light">
+          <div className="logo"></div>
+          <Menu theme="dark" selectedKeys={selectedKeys} className="base_menu">
+            {
+              menus.map((item) => {
+                return(
+                  <Menu.Item key={item.path} onClick={e => this.handleClick(e, item)} icon={<AppleOutlined />}>
+                    {item.meta.title}
+                  </Menu.Item>
+                )
+              })
+            }
+          </Menu>
+        </Sider>
+        <Layout>
+          <Content>
+            <div>{this.props.children}</div>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
-  )
+    )
+  }
 }
+export default BaseLayout 
